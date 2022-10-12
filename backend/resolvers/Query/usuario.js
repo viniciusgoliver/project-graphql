@@ -1,6 +1,6 @@
 const db = require("../../config/db");
 const bcrypt = require("bcrypt-nodejs");
-const { getUsuariologado } = require("../Common/auth-jwt");
+const { getUsuarioLogado } = require("../Common/auth-jwt");
 
 module.exports = {
   async login(_, { dados }) {
@@ -15,9 +15,9 @@ module.exports = {
       throw new Error("Usuário/Senha inválido!");
     }
 
-    return getUsuariologado(usuario);
+    return getUsuarioLogado(usuario);
   },
-  usuarios() {
+  usuarios(obj, args, context) {
     return db("usuarios");
   },
   usuario(_, { filtro }) {

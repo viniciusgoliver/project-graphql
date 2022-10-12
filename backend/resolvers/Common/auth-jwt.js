@@ -2,10 +2,9 @@ const jwt = require("jwt-simple");
 const { perfis: obterPerfil } = require("../Type/Usuario");
 
 module.exports = {
-  async getUsuariologado(usuario) {
+  async getUsuarioLogado(usuario) {
     const perfis = await obterPerfil(usuario);
     const now = Math.floor(Date.now() / 1000);
-
     const usuarioInfo = {
       id: usuario.id,
       nome: usuario.nome,
@@ -14,7 +13,6 @@ module.exports = {
       iat: now,
       exp: now + 3 * 24 * 60 * 60,
     };
-
     const authSecret = process.env.APP_AUTH_SECRET;
 
     return {
