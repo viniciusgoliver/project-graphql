@@ -14,7 +14,7 @@ const port = process.env.APP_SERVER_PORT || 3333;
 server
   .listen(port)
   .then(({ url }) => {
-    console.log(`Running Server on ${port} in ${url} `);
+    console.log(`Running Server in ${url} `);
   })
   .catch((err) => {
     console.log(`Error executing server: ${err}`);
